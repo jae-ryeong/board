@@ -3,7 +3,12 @@ package jaeboard.board.entity;
 import jakarta.persistence.*;
 import lombok.Getter;
 
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
+@Table(name = "orders")
 @Getter
 public class Order {
 
@@ -14,7 +19,16 @@ public class Order {
     @ManyToOne(fetch = FetchType.LAZY)
     private Member member;
 
-    @OneToOne
-    private Delivery delivery;
+    @OneToMany(mappedBy = "order")
+    private List<OrderItem> orderItems = new ArrayList<>();
+    
+    @OneToOne(fetch = FetchType.LAZY)
+    private Delivery delivery;  // 배송정보
+    
+    private LocalDateTime orderDate; // 주문시간
+
+    @Enumerated(EnumType.STRING)
+    private OrderStatus orderStatus;
+
 
 }

@@ -20,6 +20,6 @@ public class Member {
     private Address address;
 
     @OneToMany(mappedBy = "member") // order 클래스 내에 member 라는이름의 변수에 의해
-    private List<Order> Orders = new ArrayList<>();
+    private List<Order> Orders = new ArrayList<>(); // Many는 많으니까 List로 받는다.
 
 }
