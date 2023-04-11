@@ -12,11 +12,14 @@ public class OrderItem {   // 주문 상품
     private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "item_id")
     private Item item;
 
     @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "order_id")
     private Order order;
 
+    @Column(name = "orderprice")
     private int orderPrice;
     private int count;
 }
