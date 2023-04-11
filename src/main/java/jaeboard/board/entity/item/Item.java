@@ -1,10 +1,8 @@
 package jaeboard.board.entity.item;
 
 import jaeboard.board.entity.Category;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToMany;
+import jaeboard.board.entity.ItemCategory;
+import jakarta.persistence.*;
 import lombok.Getter;
 
 import java.util.ArrayList;
@@ -14,12 +12,13 @@ import java.util.List;
 public abstract class Item {
 
     @Id @GeneratedValue
+    @Column(name = "item_id")
     private Long id;
 
     private String name;
     private int price;
     private int stockQuantity;
 
-    @ManyToMany
-    private List<Category> categories = new ArrayList<>();
+    @OneToMany(mappedBy = "item")
+    private List<ItemCategory> itemCategory = new ArrayList<>();
 }

@@ -1,10 +1,9 @@
 package jaeboard.board.entity;
 
-import jaeboard.board.entity.item.Item;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
-import jakarta.persistence.ManyToMany;
+import jakarta.persistence.OneToMany;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,6 +16,6 @@ public class Category {
 
     private String name;
 
-    @ManyToMany
-    private List<Item> items = new ArrayList<>();
+    @OneToMany(mappedBy = "category")
+    private List<ItemCategory> itemCategories = new ArrayList<>();
 }
