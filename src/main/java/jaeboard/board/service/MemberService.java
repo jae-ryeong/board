@@ -2,7 +2,6 @@ package jaeboard.board.service;
 
 import jaeboard.board.entity.Member;
 import jaeboard.board.repository.MemberRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -31,6 +30,16 @@ public class MemberService {
         if(!findMembers.isEmpty()){
             throw new IllegalArgumentException("이미 존재하는 회원입니다.");
         }
+    }
+
+    public List<Member> findMembers() {
+        List<Member> memberList = memberRepository.findAll();
+        return memberList;
+    }
+
+    public Member findOne(Long memberId) {
+        Member member = memberRepository.findOne(memberId);
+        return member;
     }
 
 }

@@ -22,7 +22,7 @@ public class MemberRepository {
     }
 
     public Member findOne(Long id) {
-        return em.createQuery("select m from Member m where m.id = :id",Member.class).getSingleResult();
+        return em.find(Member.class, id);
     }
 
     public List<Member> findByName(String name) {
