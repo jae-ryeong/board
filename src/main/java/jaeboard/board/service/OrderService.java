@@ -6,7 +6,6 @@ import jaeboard.board.repository.ItemRepository;
 import jaeboard.board.repository.MemberRepository;
 import jaeboard.board.repository.OrderRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
