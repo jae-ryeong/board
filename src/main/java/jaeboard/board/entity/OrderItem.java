@@ -25,13 +25,16 @@ public class OrderItem {   // 주문 상품
     private int count;
 
     // 생성 메서드
-    public void createOrderItem(Item item, int orderPrice, int count) {
+    public static OrderItem createOrderItem(Item item, int orderPrice, int count) {
+        // static 메서드로하면 orderservice에서 메서드를 참조할 수 있다.
         OrderItem orderItem = new OrderItem();
         orderItem.setOrderPrice(orderPrice);
         orderItem.setCount(count);
         orderItem.setItem(item);
 
         item.removeStock(count);
+
+        return orderItem;
     }
     
     // 비즈니스 로직

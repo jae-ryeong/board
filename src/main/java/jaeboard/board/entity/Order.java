@@ -49,8 +49,8 @@ public class Order {
     }
 
     private void addOrderItem(OrderItem orderItem) {
-        orderItems.add(orderItem);
-        orderItem.setOrder(this);
+        this.orderItems.add(orderItem);
+        orderItem.setOrder(this);   // Id를 넣어주는 건가??
     }
 
     // 생성 메서드
@@ -68,9 +68,6 @@ public class Order {
         return order;
     }
 
-
-
-
     // 비즈니스 로직
     public void cancel() {
         if(delivery.getDeliveryStatus() == DeliveryStatus.COMP){
@@ -81,9 +78,7 @@ public class Order {
         for (OrderItem orderItem : orderItems) {
             orderItem.cancel();
         }
-
     }
-
 
     // 조회 로직
     public int getTotalPrice() {
@@ -94,20 +89,4 @@ public class Order {
         }
         return totalPrice;
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
