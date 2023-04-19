@@ -1,5 +1,6 @@
 package jaeboard.board.service;
 
+import jaeboard.board.dto.OrderSearchDto;
 import jaeboard.board.entity.*;
 import jaeboard.board.entity.item.Item;
 import jaeboard.board.repository.ItemRepository;
@@ -8,6 +9,8 @@ import jaeboard.board.repository.OrderRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
 
 @Service
 @Transactional(readOnly = true)
@@ -40,6 +43,10 @@ public class OrderService {
         // 주문 저장
         orderRepository.save(order);
         return order.getId();
+    }
+
+    public List<Order> findOrders(OrderSearchDto orderSearchDto) {
+        return orderRepository.findAllByCriteria(orderSearchDto);
     }
 
     @Transactional

@@ -24,8 +24,8 @@ class MemberServiceTest {
     void join() {
         Member member1 = new Member();
         Member member2 = new Member();
-        member1.setName("김재령");
-        member2.setName("김재령");
+        member1.setUsername("김재령");
+        member2.setUsername("김재령");
 
         Long member1Id = memberService.Join(member1);
         // Long member2Id = memberService.Join(member2); 중복회원 에러 발생유도

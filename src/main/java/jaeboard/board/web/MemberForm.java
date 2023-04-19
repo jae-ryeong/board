@@ -1,4 +1,4 @@
-package jaeboard.board.controller;
+package jaeboard.board.web;
 
 import jakarta.validation.constraints.NotEmpty;
 import lombok.Getter;

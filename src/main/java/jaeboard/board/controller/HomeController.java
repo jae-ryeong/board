@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Slf4j
 public class HomeController {
 
-    @GetMapping("/home")
+    @GetMapping("/")
     public String name() {
         log.info("home controller");
         return "home";

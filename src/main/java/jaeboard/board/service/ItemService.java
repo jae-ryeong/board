@@ -2,7 +2,6 @@ package jaeboard.board.service;
 
 import jaeboard.board.entity.item.Item;
 import jaeboard.board.repository.ItemRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -27,7 +26,16 @@ public class ItemService {
         return itemRepository.findAll();
     }
 
-    public Item findItem(Item item) {
-        return itemRepository.findOne(item.getId());
+    public Item findItem(Long itemId) {
+        return itemRepository.findOne(itemId);
+    }
+
+    @Transactional
+    public void updateItem(Long id, String name, int price, int stockQuantity) {
+        Item item = itemRepository.findOne(id);
+
+        item.setName(name);
+        item.setPrice(price);
+        item.setStockQuantity(stockQuantity);
     }
 }

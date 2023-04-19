@@ -1,6 +1,6 @@
 package jaeboard.board.repository;
 
-import jaeboard.board.dto.orderSearchDto;
+import jaeboard.board.dto.OrderSearchDto;
 import jaeboard.board.entity.Member;
 import jaeboard.board.entity.Order;
 import jakarta.persistence.EntityManager;
@@ -28,7 +28,7 @@ public class OrderRepository {
         return order;
     }
 
-    public List<Order> findAllByCriteria(orderSearchDto orderSearchDto) {
+    public List<Order> findAllByCriteria(OrderSearchDto orderSearchDto) {
         CriteriaBuilder cb = em.getCriteriaBuilder();
         CriteriaQuery<Order> cq = cb.createQuery(Order.class);
         Root<Order> o = cq.from(Order.class);
