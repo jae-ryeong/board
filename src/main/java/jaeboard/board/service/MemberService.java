@@ -2,6 +2,7 @@ package jaeboard.board.service;
 
 import jaeboard.board.entity.Member;
 import jaeboard.board.repository.MemberRepository;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -9,13 +10,10 @@ import java.util.List;
 
 @Service
 @Transactional(readOnly = true)
+@AllArgsConstructor
 public class MemberService {
 
     private final MemberRepository memberRepository;
-
-    public MemberService(MemberRepository memberRepository) {
-        this.memberRepository = memberRepository;
-    }
 
     @Transactional
     public Long Join(Member member) {
