@@ -4,6 +4,8 @@ build/
 !gradle/wrapper/gradle-wrapper.jar
 !**/src/main/**/build/
 !**/src/test/**/build/
+/main/generated
+/jaeboard/board/entity/item
 
 ### STS ###
 .apt_generated
@@ -35,3 +37,4 @@ out/
 
 ### VS Code ###
 .vscode/
+
