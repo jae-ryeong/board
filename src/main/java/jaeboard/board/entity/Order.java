@@ -12,7 +12,7 @@ import java.util.List;
 @Entity
 @Table(name = "orders")
 @Getter @Setter
-public class Order {
+public class Order extends BaseTimeEntity {
 
     @Id @GeneratedValue
     @Column(name = "order_id")
@@ -29,8 +29,8 @@ public class Order {
     @JoinColumn(name = "delivery_id")
     private Delivery delivery;  // 배송정보
 
-    @CreatedDate
-    private LocalDateTime orderDate; // 주문시간
+   /* @CreatedDate
+    private LocalDateTime orderDate; // 주문시간*/
 
     @Enumerated(EnumType.STRING)
     private OrderStatus orderStatus;

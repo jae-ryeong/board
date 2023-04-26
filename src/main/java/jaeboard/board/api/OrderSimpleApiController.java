@@ -50,7 +50,7 @@ public class OrderSimpleApiController {
         public SimpleOrderDto(Order o) {
             orderId = o.getId();
             name = o.getMember().getUsername();
-            orderDate = o.getOrderDate();
+            orderDate = o.getCreateDate();
             orderStatus = o.getOrderStatus();
             address = o.getDelivery().getAddress();
         }
