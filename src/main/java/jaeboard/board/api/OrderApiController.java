@@ -1,6 +1,7 @@
 package jaeboard.board.api;
 
 import jaeboard.board.dto.OrderDto;
+import jaeboard.board.dto.OrderFlatDto;
 import jaeboard.board.dto.OrderQueryDto;
 import jaeboard.board.dto.OrderSearchDto;
 import jaeboard.board.entity.Order;
@@ -45,4 +46,29 @@ public class OrderApiController {
     public List<OrderQueryDto> ordersV4() {
         return orderQueryRepository.findOrderQueryDtos();
     }
+
+    @GetMapping("/api/v5/orders")
+    public List<OrderQueryDto> ordersV5() {
+       return  orderQueryRepository.findAllByDto_optimization();
+    }
+
+    @GetMapping("/api/v6/orders")
+    public List<OrderQueryDto> ordersV6() {
+        List<OrderFlatDto> flats = orderQueryRepository.findAllByDto_flat();
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
